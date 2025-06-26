@@ -1,0 +1,9 @@
+facebook-business
+requests
+playwright
+apscheduler
+slack_sdk
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+python-dotenv
