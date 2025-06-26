@@ -16,9 +16,16 @@ GOOGLE_SHEETS_SPREADSHEET_ID = os.getenv("GOOGLE_SHEETS_SPREADSHEET_ID", "SPREAD
 # Slack webhook URL
 SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL", "https://hooks.slack.com/services/YOUR/WEBHOOK")
 
+# Email settings
+SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.example.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USERNAME = os.getenv("SMTP_USERNAME", "user@example.com")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "password")
+EMAIL_RECIPIENT = os.getenv("EMAIL_RECIPIENT", "recipient@example.com")
+
 # Database path
 DATABASE_PATH = os.getenv("DATABASE_PATH", "data.db")
 
 # Scheduler settings
-# Run the job at the beginning of every hour by default
-POST_SCHEDULE = os.getenv("POST_SCHEDULE", "0 * * * *")
+# Run the job at 06:00, 13:00, and 20:00 by default
+POST_SCHEDULE = os.getenv("POST_SCHEDULE", "0 6,13,20 * * *")
