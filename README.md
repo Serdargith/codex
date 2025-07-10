@@ -19,10 +19,12 @@ You can run the automation without hosting costs by using [GitHub Actions](https
 
 ## Article Writing Assistant
 
-A FastAPI backend (`backend/`) provides endpoints powered by GPT-4 to help orthopedics researchers write SCIE-ready manuscripts. Example usage:
+A FastAPI backend (`backend/`) provides endpoints powered by a local HuggingFace model (e.g. DeepSeek R1) to help orthopedics researchers write SCIE-ready manuscripts. Example usage:
 
 ```bash
 uvicorn backend.main:app --reload
 ```
 
 POST `/hypothesis` with JSON `{ "topic": "anterior cruciate ligament" }` to generate SMART hypotheses.
+
+Set the environment variable `HF_MODEL_PATH` to the directory of a compatible transformer model (for example, a locally downloaded DeepSeek R1 checkpoint).

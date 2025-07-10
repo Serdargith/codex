@@ -9,5 +9,5 @@ google-auth-oauthlib
 python-dotenv
 fastapi
 uvicorn
-openai
+transformers
 pandas
