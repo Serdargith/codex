@@ -16,3 +16,16 @@ Fill in `config.py` with your credentials. By default the job runs at the top of
 ## Free scheduling via GitHub Actions
 
 You can run the automation without hosting costs by using [GitHub Actions](https://docs.github.com/en/actions). A workflow file is included in `.github/workflows/scheduler.yml` that runs `main.py` at the start of every hour. Set the required secrets (e.g. `INSTAGRAM_ACCESS_TOKEN`) in your repository settings and enable the workflow.
+
+## Article Writing Assistant
+
+A FastAPI backend (`backend/`) provides endpoints powered by a local HuggingFace model (e.g. DeepSeek R1) to help orthopedics researchers write SCIE-ready manuscripts. Example usage:
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+POST `/hypothesis` with JSON `{ "topic": "anterior cruciate ligament" }` to generate SMART hypotheses.
+POST `/summary` with JSON `{ "text": "..." }` to get a short literature summary using a local TextRank algorithm.
+
+Set the environment variable `HF_MODEL_PATH` to the directory of a compatible transformer model (for example, a locally downloaded DeepSeek R1 checkpoint). The summarization endpoint relies on the `summa` package and works fully offline.
