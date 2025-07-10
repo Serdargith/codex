@@ -16,3 +16,13 @@ Fill in `config.py` with your credentials. By default the job runs at the top of
 ## Free scheduling via GitHub Actions
 
 You can run the automation without hosting costs by using [GitHub Actions](https://docs.github.com/en/actions). A workflow file is included in `.github/workflows/scheduler.yml` that runs `main.py` at the start of every hour. Set the required secrets (e.g. `INSTAGRAM_ACCESS_TOKEN`) in your repository settings and enable the workflow.
+
+## Article Writing Assistant
+
+A FastAPI backend (`backend/`) provides endpoints powered by GPT-4 to help orthopedics researchers write SCIE-ready manuscripts. Example usage:
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+POST `/hypothesis` with JSON `{ "topic": "anterior cruciate ligament" }` to generate SMART hypotheses.
